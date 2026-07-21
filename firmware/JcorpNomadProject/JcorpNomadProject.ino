@@ -3426,7 +3426,7 @@ void applyWiFiSettings() {
 
   Serial.print("Starting WiFi with SSID: ");
   Serial.println(settings.wifiSSID);
-  WiFi.softAP(settings.wifiSSID.c_str(), settings.wifiPassword.c_str(), 1, 0, MAX_CLIENTS);
+  WiFi.softAP(settings.wifiSSID.c_str(), settings.wifiPassword.c_str(), 1, 1, MAX_CLIENTS);
   dnsServer.start(DNS_PORT, "*", WiFi.softAPIP());
   startNomadMDNS();
 }
@@ -4198,7 +4198,7 @@ void setup() {
                   (int)psramFound(),
                   (unsigned)heap_caps_get_free_size(MALLOC_CAP_SPIRAM));
 
-    WiFi.softAP(settings.wifiSSID.c_str(), settings.wifiPassword.c_str(), 1, 0, MAX_CLIENTS);
+    WiFi.softAP(settings.wifiSSID.c_str(), settings.wifiPassword.c_str(), 1, 1, MAX_CLIENTS);
 
     Serial.printf("[DIAG] post-AP internal=%u largest=%u  apIP=%s\n",
                   (unsigned)heap_caps_get_free_size(MALLOC_CAP_INTERNAL),
