@@ -3968,7 +3968,7 @@ void startNetwork() {
     g_staMode = false;
     webLogf("info", "Starting WiFi Access Point with SSID: '%s'", settings.wifiSSID.c_str());
     WiFi.mode(WIFI_AP);
-    WiFi.softAP(settings.wifiSSID.c_str(), settings.wifiPassword.c_str(), 1, 0, MAX_CLIENTS);
+    WiFi.softAP(settings.wifiSSID.c_str(), settings.wifiPassword.c_str(), 1, 1, MAX_CLIENTS);
     ensureApDhcpServer("boot-initial");  // make sure clients get a lease, not APIPA (issue #126)
     webLogf("success", "WiFi Access Point started successfully - IP: %s", WiFi.softAPIP().toString().c_str());
     nomadDnsSetCatchAll(settings.dnsCatchAll);
